@@ -1,4 +1,5 @@
 ﻿using _0_Freamwork.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using ShopManagement.Application.Contracts.ProductCategory;
 using ShopManagement.Domain.ProductCategoryAgg;
 using System;
@@ -44,7 +45,7 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
                 Name = x.Name,
                 Picture = x.Picture,
                 CreationDate = x.CreationDate.ToString()
-            });
+            }).AsNoTracking();
 
             if (!string.IsNullOrWhiteSpace(searchModel.Name))
                 query = query.Where(x => x.Name.Contains(searchModel.Name));
