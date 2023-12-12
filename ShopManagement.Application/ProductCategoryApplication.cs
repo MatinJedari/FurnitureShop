@@ -18,7 +18,7 @@ namespace ShopManagement.Application
         {
             OperationResult operation = new OperationResult();
             if (_productCategoryRepository.Exists(x => x.Name == command.Name))
-                return operation.Failed("داده تکراری");
+                return operation.Failed(ApplicationMessage.DuplicatedRecord);
 
             string slug = command.Slug.Slugify();
             ProductCategory productCategory = new ProductCategory(
@@ -43,10 +43,10 @@ namespace ShopManagement.Application
             var productCategory = _productCategoryRepository.GetById(command.Id);
 
             if (productCategory == null)
-                return operation.Failed("همچین داده ای وجود ندارد.");
+                return operation.Failed(ApplicationMessage.RecordNotFound);
 
             if (_productCategoryRepository.Exists(x => x.Name == command.Name && x.Id == command.Id))
-                return operation.Failed("داده تکراری");
+                return operation.Failed(ApplicationMessage.DuplicatedRecord);
 
             string slug = command.Slug.Slugify();
             productCategory.Edit(

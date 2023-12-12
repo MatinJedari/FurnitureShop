@@ -45,7 +45,7 @@ namespace ShopManagement.Infrastructure.EFCore.Migrations
                         .HasColumnType("nvarchar(150)")
                         .HasMaxLength(150);
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Code")
                         .IsRequired()
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
