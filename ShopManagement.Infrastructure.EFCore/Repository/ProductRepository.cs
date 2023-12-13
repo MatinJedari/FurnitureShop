@@ -49,7 +49,7 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
                 CategoryId = x.CategoryId,
                 Picture = x.Picture,
                 UnitPrice = x.UnitPrice,
-
+                CreationDate = x.CreationDate.ToString()
             });
 
             if (!string.IsNullOrWhiteSpace(searchModel.Name))

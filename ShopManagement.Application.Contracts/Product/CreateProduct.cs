@@ -1,4 +1,6 @@
-﻿using System.Net.Sockets;
+﻿using ShopManagement.Application.Contracts.ProductCategory;
+using System.Collections.Generic;
+using System.Net.Sockets;
 
 namespace ShopManagement.Application.Contracts.Product
 {
@@ -17,5 +19,6 @@ namespace ShopManagement.Application.Contracts.Product
         public string Slug { get; set; }
         public string Keywords { get; set; }
         public string MetaDescription { get; set; }
+        public List<ProductCategoryViewModel> Categories { get; set; }
     }
 }
