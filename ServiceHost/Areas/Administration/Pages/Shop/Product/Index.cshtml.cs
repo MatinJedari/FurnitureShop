@@ -9,6 +9,8 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.Product
 {
     public class IndexModel : PageModel
     {
+        [TempData]
+        public string Message { get; set; }
         public ProductSearchModel SearchModel;
         public SelectList ProductCategories;
         public List<ProductViewModel> Products;
@@ -44,8 +46,9 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.Product
 
         public IActionResult OnGetEdit(long id)
         {
-            EditProduct productCategory = _productApplication.GetDetail(id);
-            return Partial("Edit", productCategory);
+            EditProduct product = _productApplication.GetDetail(id);
+            product.Categories = _productCategoryApplication.GetProductCategories();
+            return Partial("Edit", product);
         }
 
         public JsonResult OnPostEdit(EditProduct command)
@@ -54,5 +57,24 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.Product
             return new JsonResult(result);
         }
 
+        public IActionResult OnGetNotInStock(long id)
+        {
+            var result = _productApplication.NotInStock(id);
+            if (result.IsSuccedded)
+                return RedirectToPage("./Index");
+
+            this.Message = result.Message;
+            return RedirectToPage("./Index");
+        }
+
+        public IActionResult OnGetIsInStock(long id)
+        {
+            var result = _productApplication.InStock(id);
+            if (result.IsSuccedded)
+                return RedirectToPage("./Index");
+
+            this.Message = result.Message;
+            return RedirectToPage("./Index");
+        }
     }
 }
