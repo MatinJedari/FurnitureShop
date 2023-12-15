@@ -41,8 +41,9 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
                 Id = x.Id,
                 Picture = x.Picture,
                 Heading = x.Heading,
-                Title = x.Title
-
+                Title = x.Title,
+                IsRemoved = x.IsRemoved,
+                CreationDate = x.CreationDate.ToString()
             }).OrderByDescending(x => x.Id).ToList();
         }
     }
