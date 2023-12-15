@@ -22,7 +22,7 @@ namespace ShopManagement.Infrastructure.EFCore
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             var productCategoryAssembly = typeof(ProductCategoryMapping).Assembly;
-            var productAssembly = typeof(ProductCategory).Assembly;
+            var productAssembly = typeof(ProductMapping).Assembly;
             var productPictureAssembly = typeof(ProductPictureMapping).Assembly;
 
             modelBuilder.ApplyConfigurationsFromAssembly(productCategoryAssembly);
