@@ -2,6 +2,7 @@
 using ShopManagement.Domain.ProductAgg;
 using ShopManagement.Domain.ProductCategoryAgg;
 using ShopManagement.Domain.ProductPictureAgg;
+using ShopManagement.Domain.SlideAgg;
 using ShopManagement.Infrastructure.EFCore.Mapping;
 
 
@@ -12,11 +13,13 @@ namespace ShopManagement.Infrastructure.EFCore
         public DbSet<Product> Products { get; }
         public DbSet<ProductCategory> ProductCategories { get; }
         public DbSet<ProductPicture> ProductPictures { get; }
+        public DbSet<Slide> Slides { get; }
         public ShopContext(DbContextOptions<ShopContext> options) : base(options) 
         {
             ProductCategories = Set<ProductCategory>();
             Products = Set<Product>();
             ProductPictures = Set<ProductPicture>();
+            Slides = Set<Slide>();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
