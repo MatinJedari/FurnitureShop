@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\01_FurnitureShopQuery\01_FurnitureShopQuery.csproj" />
     <ProjectReference Include="..\0_Freamwork\0_Freamwork.csproj" />
     <ProjectReference Include="..\ShopManagement.Application.Contracts\ShopManagement.Application.Contracts.csproj" />
     <ProjectReference Include="..\ShopManagement.Application\ShopManagement.Application.csproj" />

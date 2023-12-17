@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopManagement.Application.Contracts.Slide
+namespace _01_FurnitureShopQuery.Contracts.Slide
 {
-    public class CreateSlide
+    public class SlideQueryModel
     {
         public string Picture { get; set; }
         public string PictureAlt { get; set; }

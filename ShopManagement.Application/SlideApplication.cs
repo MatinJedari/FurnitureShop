@@ -28,7 +28,8 @@ namespace ShopManagement.Application
                 command.Heading,
                 command.Title,
                 command.Text,
-                command.BtnText);
+                command.BtnText,
+                command.Link);
 
             _slideRepository.Create(slide);
             _slideRepository.SaveChanges();
@@ -49,7 +50,8 @@ namespace ShopManagement.Application
                 command.Heading,
                 command.Title,
                 command.Text,
-                command.BtnText);
+                command.BtnText,
+                command.Link);
 
             _slideRepository.SaveChanges();
             return operation.Succedded();
