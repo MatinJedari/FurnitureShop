@@ -1,7 +1,7 @@
 ﻿using _01_FurnitureShopQuery.Contracts.Slide;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ServiceHost.Components
+namespace ServiceHost.ViewComponents
 {
     public class SlideViewComponent : ViewComponent
     {
